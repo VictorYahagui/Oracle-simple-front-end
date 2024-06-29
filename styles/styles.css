@@ -1,23 +1,61 @@
+:root {
+    --primary-color: #000;
+    --secondary-color: #f6f6f6;
+    --tertiary-color: #22d4fd;
+    --hover-color: #272727;
+
+    --font-primary: 'Comic Sans MS', sans-serif;
+    --font-secondary: 'Montserrat', sans-serif;
+}
+
 * {
     margin: 0;
     padding: 0;
 } 
+.button-social-media::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 300%;
+    height: 300%;
+    background-color: var(--hover-color);
+    transform: translate(-50%, -50%) scale(0);
+    transition: transform 0.7s ease;
+    z-index: -1; /* Coloca o pseudo-elemento atrás do conteúdo do botão */
+}
+.button-social-media:hover::before {
+    transform: translate(-50%, -50%) scale(1);
+}
 
 body {
     box-sizing: border-box;
-    background: black;
+    background: var(--primary-color);
     color: white;
-    font-family: 'Comic Sans MS', sans-serif;
+    font-family: var(--font-primary);
     font-size: 16px;
     line-height: 1.5;
     
 }
 main {
-    height: 100vh; 
+    height: 86vh; 
     display: flex;
     align-items: center;
     justify-content: center;
     margin: 0 15% 0 15%;
+}
+.nav-bar{
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    gap: 2rem;
+    padding: 1% 15%;
+}
+.menu-link{
+    font-family:var(--font-secondary);
+    font-size: 20px;
+    text-decoration: none;
+    color: var(--tertiary-color);
 }
 h1 {
     font-size: 36px;
@@ -33,21 +71,46 @@ p {
 }
 .anchor-container {
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: space-around;
-    gap: 2rem;
+    gap: 1.3rem;
 }
 span {
-    color: #22D4FD;
+    color: var(--tertiary-color);
 }
-.button-social-media{
-    background-color: #22D4FD;
-    width: 23.25rem;
+.subtitle-social-media{
+    font-weight: 400;
+    font-size: 1.2rem;
+
+}
+.button-social-media {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem;
+    width: 20rem;
     text-align: center;
-    border-radius: 16px;
+    border-radius: 8px;
     font-size: 1.2rem;
     padding: 0.5rem;
     text-decoration: none;
+    color: var(--secondary-color);
+    border: 2px solid var(--tertiary-color);
+    position: relative; /* Necessário para posicionar o pseudo-elemento */
+    overflow: hidden; /* Ocultar o excesso do pseudo-elemento */
+    z-index: 0; /* Garantir que o conteúdo esteja acima do pseudo-elemento */
+}
+
+.button-social-media:hover{
+    background-color: #272727;
+    transition: background-color 0.7s ease;
+}
+.footer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
     color: black;
-    font-family: 'Comic Sans MS', sans-serif;
+    background-color: var(--tertiary-color);
+    padding: 1rem;
 }
